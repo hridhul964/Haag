@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.views import View
 
+from Haagapp.form import *
 from Haagapp.models import *
 
 
@@ -14,7 +15,8 @@ class Login(View):
     def post(self, request):
         username = request.POST['username']
         password = request.POST['password']
-        login_obj = Login_model.objects.get(username=username, password=password)       
+        login_obj = Login_model.objects.get(username=username, password=password)  
+        request.session['login_id']=login_obj.id     
         if login_obj.Type == "admin":
             return HttpResponse('''<script>alert("welcome to a");window.location="/admin_dashboard";</script>''')
         elif login_obj.Type == 'teacher':
@@ -29,9 +31,9 @@ class AdminDashboard(View):
   def get(self,request):
       return render(request, 'administrator/admindashboard.html')
 
-class Add_course(View):
+class AddandManageCourse(View):
     def get(self, request):
-        return render(request, 'administrator/add_course.html')
+        return render(request, 'administrator/add and manage course.html')
 class Eventmanager(View):
     def get(self, request):
         return render(request, 'administrator/event manager.html')
@@ -83,12 +85,38 @@ class Addandmanageeventprogram1(View):
 class Addandmanageeventprogram(View):
     def get(self, request):
         return render(request, 'eventmanager/add and manage event program.html')
+    
 class Addandmanagematerialsforeventcolumn(View):
     def get(self, request):
         return render(request, 'eventmanager/add and manage materials for event column.html')
+    
+    def post(self, request):
+        form=MaterialForm(request.POST, request.FILES)
+        if form.is_valid():
+            f=form.save(commit=False)
+            print("#############", request.session['login_id'])
+            f.Eventid=Eventmanager_model.objects.get(LOGIN_id=request.session['login_id'])
+            f.save()
+            return HttpResponse('''<script>alert("material added successfully");window.location="/add_and_manage_materials_for_event";</script>''')
+        
+
+
+class edit_materials(View):
+    def get(self,request,M_id):
+            obj=Eventmaterials_model.objects.get(id=M_id)
+            return render(request,"eventmanager/material edit.html",{'val':obj})
+            
+
+class deletematerial(View):
+    def get(self,request,M_id):
+        obj=Eventmaterials_model.objects.get(id=M_id)
+        obj.delete()
+        return HttpResponse('''<script>alert("material deleted successfully");window.location="/add_and_manage_materials_for_event"</script>''')
+    
 class Addandmanagematerialsforevent(View):
     def get(self, request):
-        return render(request, 'eventmanager/add and manage materials for event.html')
+        obj=Eventmaterials_model.objects.all()
+        return render(request, 'eventmanager/add and manage materials for event.html', {'val':obj})
 class Eventmanagerprofileupdate(View):
     def get(self, request):
         return render(request, 'eventmanager/event manager profile update.html')

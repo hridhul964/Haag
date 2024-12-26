@@ -11,20 +11,29 @@
 <table border="1">
     <thead>
         <tr>
-            <th>Add materials</th>
-            <th>Remove materials</th>
-            <th></th>
+            <th> Materialsname</th>
+            <th> imagematerial</th>
+            <th> Description</th>
+            <th>Amount </th>
+            <th> date</th>
         </tr>
     </thead>
     <tbody>
+        {% for i in val %}
         <tr>
-            <td>Row 1, Cell 1</td>
-            <td>Row 1, Cell 2</td>
+            <td>{{ i.Materialsname }}</td>
+            <td><img src="{{ i.imagematerial.url }}" height="100px" width="100px"></td>
+            <td>{{ i.Description }}</td>
+            <td>{{ i.Amount }}</td>
+            <td>{{ i.date }}</td>
             <td>
-                <a href="#">delete </a>
+                <a href="">EDIT </a><br>
+                <a href="/deletemat/{{i.id}}">DELETE </a>
             </td>
         </tr>
-        
+        {% endfor %}
+         
+        <a href="/add_and_manage_materials_for_event_column">+add_and_manage_materials_for_event_column</a>  <br>  
 </table>
    </div>
 </body>

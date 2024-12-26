@@ -13,7 +13,7 @@ urlpatterns = [
 
     path('admin_dashboard', AdminDashboard.as_view(), name='admin_dashboard'),
 
-    path('addcourse', Add_course.as_view(), name='addcourse'),
+    path('add and manage course', AddandManageCourse.as_view(), name='add and manage course'),
 
     path('eventmanager', Eventmanager.as_view(), name='eventmanager'),
 
@@ -57,6 +57,7 @@ path('manage_event_notification', Manageeventnotification.as_view(), name='manag
 path('manageevent_notification_edit', Manageeventnotificationedit.as_view(), name='manageevent_notification_edit'),
 path('view_event_program_status', Vieweventprogramstatus.as_view(), name='view_event_program_status'),
 path('view_event_request_and_update_status',Vieweventrequestandupdatestatus.as_view(), name='view_event_request_and_update_status'),
+path('deletemat/<int:M_id>', deletematerial.as_view(),name='deletemat'),
 
 #////////////////teacher/////////////////////////////////////////////////////////
  path('teacherdashboard', TeacherDashboard.as_view(), name='teacherdashboard'),
