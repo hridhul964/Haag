@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+  Choose file : <input type="file" name="Classvideo"><br><br>
+           
+          Description  :<input type="text" name="Description"><br><br>
+          date  :<input type="date" name="date"><br><br>
+          amount  :<input type="text" name="amount"><br><br>
+          
+
+
+<button type="SUBMIT">SUBMIT</button></form>
+        </div>
+</body>
+</html>

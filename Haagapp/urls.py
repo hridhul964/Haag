@@ -16,11 +16,17 @@ urlpatterns = [
     path('add and manage course', AddandManageCourse.as_view(), name='add and manage course'),
 
     path('eventmanager', Eventmanager.as_view(), name='eventmanager'),
+    path('accept_eventmanager/<int:e_id>/', Accept_eventmanager.as_view(), name='accept_eventmanager'),
+    path('reject_eventmanager/<int:t_id>/', Reject_eventmanager.as_view(), name='reject_eventmanager'),
 
     path('eventprogram', Eventprogram.as_view(), name='eventprogram'),
+    path('accept_eventprogram/<int:P_id>/', Accept_eventprogram.as_view(), name='accept_eventprogram'),
+    path('reject_eventprogram/<int:t_id>/', Reject_eventprogram.as_view(), name='reject_eventprogram'),
+
 
 
     path('managestudent', Managestudent.as_view(), name='managestudent'),
+    path('deletestudent/<int:id>',deletestudent.as_view(),name='deletestudent'),
 
     path('send_event_notification_to_teacher', Sendeventnotificationtoteacher.as_view(), name='send_event_notification_to_teacher'),
 
@@ -29,8 +35,14 @@ urlpatterns = [
 
 
     path('verify', Verify.as_view(), name='verify'),
+    path('accept_teacher/<int:t_id>/', Accept_teacher.as_view(), name='accept_teacher'),
+    path('reject_teacher/<int:t_id>/', Reject_teacher.as_view(), name='reject_teacher'),
+
+
 
     path('view_and_manage', Viewandmanage.as_view(), name='view_and_manage'),
+    path('deletecourse/<int:C_id>',deletecourse.as_view(),name='deletecourse'),
+
 
     path('view_fee_details', Viewfeedetails.as_view(), name='view_fee_details'),
 
@@ -58,6 +70,7 @@ path('manageevent_notification_edit', Manageeventnotificationedit.as_view(), nam
 path('view_event_program_status', Vieweventprogramstatus.as_view(), name='view_event_program_status'),
 path('view_event_request_and_update_status',Vieweventrequestandupdatestatus.as_view(), name='view_event_request_and_update_status'),
 path('deletemat/<int:M_id>', deletematerial.as_view(),name='deletemat'),
+path('editmat/<int:M_id>/', edit_materials.as_view(), name='editmat'),
 
 #////////////////teacher/////////////////////////////////////////////////////////
  path('teacherdashboard', TeacherDashboard.as_view(), name='teacherdashboard'),
@@ -69,6 +82,13 @@ path('sent_ program_notification_student',Sentprogramnotificationstudent.as_view
 path('sent_recorded_class_video',Sentrecordedclassvideo.as_view(), name='sent_recorded_class_video'),
 path('teacher_payment_verification',Teacherpaymentverification.as_view(), name='teacher_payment_verification'),
 path('teacher_view_program_notification',Teacherviewprogramnotification.as_view(), name='teacher_view_program_notification'),
+path('add_new_video',add_new_video.as_view(), name='add_new_video'),
+path('deleteVideo/<int:M_id>/',deletevideo.as_view(), name='deleteVideo'),
+path('MeetNotificationadd',MeetNotificationadd.as_view(),name='MeetNotificationadd'),
+path('MeetNotificationupdate/<int:id>',MeetNotificationupdate.as_view(),name='MeetNotificationupdate'),
+path('MeetNotificationdelete/<int:id>',MeetNotificationdelete.as_view(),name='MeetNotificationdelete'),
+path('edit_video/<int:v_id>',edit_video.as_view(),name='edit_video'),
+
 
 
 

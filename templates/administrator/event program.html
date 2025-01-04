@@ -19,13 +19,19 @@
         </tr>
         </thead>
         <tbody>
+            {% for i in obj %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
+                <td>{{i.programname}}</td>
+                <td>{{i.coordinator}}</td>
+                <td>{{i.date}}</td>
+                <td>{{i.place}}</td>
+                <td>{{i.Description}}</td>
+                <td>
+                    <a href="{% url 'accept_eventmanager' i.id %}"class="button accept">Accept</a>
+                    <a href="{% url 'reject_eventmanager' i.id %}"class="button reject">Reject</a>
+                    </td>
+                </tr>
+                {% endfor %}
 
         </table>
         </div>

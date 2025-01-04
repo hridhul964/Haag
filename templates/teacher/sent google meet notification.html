@@ -11,19 +11,30 @@
 <table border="1">
     <thead>
         <tr>
-            <th>teacher</th>
-            <th>student</th>
-            <th>Event manager</th>
+            <th>type</th>
+            <th>notification</th>
+            <th>date</th>
+            <th>link</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+        {% for i in obj %}
         <tr>
-            <td>Row 1, Cell 1</td>
-            <td>Row 1, Cell 2</td>
-            <td>Row 1, Cell 3</td>
-        </tr>
+            <td>{{i.type}}</td>
+            <td>{{i.notification}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.link}}</td>
+           <td> <a href="/MeetNotificationupdate/{{i.id}}">Update </a>
+            <a href="MeetNotificationdelete/{{i.id}}">delete </a></td>
         
+        </tr>
+        {% endfor %}
+        <tr>
+            <td colspan="5"><center><a href="MeetNotificationadd">ADD</a></center></td>
+        </tr>
+       
+ 
 </table>
 </div>
 </body>

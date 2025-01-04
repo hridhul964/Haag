@@ -119,10 +119,10 @@
 </head>
 <body>
     <div class="login-container">
-        <form class="login-form">
+        <form class="login-form"  method="post">
             <h2>Register</h2>
             <div class="input-group">
-                <input type="text" id="Name" name="Name"  required>
+                <input type="text" id="Name" name="name"  required>
                 <label for="Name">Name</label>
             </div>
             <div class="input-group">
@@ -130,16 +130,19 @@
                 <label for="address">address</label>
             </div>
             
+            
             <div class="input-group">
-                <input type="text" id="place" name="place"  required>
-                <label for="place">place</label>
-            </div>
-            <div class="input-group">
-                <input type="text" id="phone no" name="phone no"  required>
+                <input type="text" id="phone no" name="phoneno"  required>
                 <label for="phone no">phone no</label>
             </div>
+
             <div class="input-group">
-                <select name="" id="">
+                <input type="text" id="email" name="email"  required>
+                <label for="email">email</label>
+            </div>
+
+            <div class="input-group">
+                <select name="gender" id="">
                     <option value="pending">Select gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
@@ -151,9 +154,20 @@
                 <input type="text" id="qualification" name="qualification"  required>
                 <label for="qualification">qualification</label>
             </div>
+            
             <div class="input-group">
-                <input type="text" id="course name" name="course name"  required>
-                <label for="course name">course name</label>
+                <input type="date" id="" name="dob"  required>
+                <label for="date">d.o.b</label>
+            
+
+            </div>
+            <div class="input-group">
+                <select name="course_id" id="">
+                    {%for i in obj%}
+                    <option value="{{i.id}}">{{i.coursename}}</option>
+                    {%endfor%}
+                </select>
+                
             </div>
             <div class="input-group">
                 <input type="text" id="username" name="username"  required>

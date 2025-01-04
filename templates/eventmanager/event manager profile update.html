@@ -126,7 +126,7 @@
         <form class="login-form">
             <h2>Profile</h2>
             <div class="input-group">
-                <input type="text" id="Name" name="Name"  required>
+                <input type="text" id="Name" name="Name" value="{{val.name}}" required>
                 <label for="Name">Name</label>
             </div>
             <div class="input-group">
@@ -135,18 +135,28 @@
             </div>
             
             <div class="input-group">
-                <input type="text" id="place" name="place"  required>
+                <input type="text" id="place" name="place" value="{{val.place}}"  required>
                 <label for="place">place</label>
             </div>
             <div class="input-group">
-                <input type="text" id="Email id" name="Email id"  required>
+                <input type="text" id="Email id" name="Email id" value="{{val.email}}"  required>
                 <label for="Email id">Email id</label>
             </div>
             <div class="input-group">
-                <input type="text" id="phone no" name="phone no"  required>
+                <input type="text" id="phone no" name="phone no" value="{{val.phoneno}}"  required>
                 <label for="phone no">phone no</label>
             </div>
-            <div class="input-group">
+    <div >
+        <label for="male">Male</label>
+        <input type="radio" name="gender" value="male">
+
+        <label for="female">Female</label>
+        <input type="radio" name="gender" value="female">
+    
+</div><br>
+
+            
+            <!-- <div class="input-group">
                 <input type="current password" id="current password" name="current password"  required>
                 <label for="current password">current Password</label>
                 <span id="togglePassword" class="eye-icon material-icons" onclick="togglePasswordVisibility()">visibility_off</span>
@@ -155,7 +165,7 @@
                 <input type="New password" id="New password" name="New password"  required>
                 <label for="New password">New Password</label>
                 <span id="togglePassword" class="eye-icon material-icons" onclick="togglePasswordVisibility()">visibility_off</span>
-            </div>
+            </div> -->
             <button type="submit">Update</button>
         </form>
     </div>

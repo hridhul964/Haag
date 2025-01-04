@@ -13,15 +13,24 @@
         <th>Student name</th>
         <th>Phone no</th>
         <th>Course</th> 
-        <th>Delete</th>
+        <th>dob</th>
+        <th>email</th>
+        
         </tr>
         </thead>
         <tbody>
+            {% for i in obj %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{i.username}}</td>
+                <td>{{i.phoneno}}</td>
+                <td>{{i.COURSE}}</td>
+                <td>{{i.dob}}</td>
+                <td>{{i.email}}</td>
+                <td><a href="deletestudent/{{i.id}}">delete </a></td>
+                
+                    
+            </tr>
+            {% endfor %}
 
 
         </table>

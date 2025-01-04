@@ -10,22 +10,41 @@
     <div class="container">
     <table border="1">
         <tr>
-        <th>id</th>
-        <th>Teacher name</th>
+        
+        <th>name</th>
+        <th>subject</th>
         <th>Phone no</th>
-        <th>subject</th> 
-        <th>Action</th>
+        <th>email</th>
+        <th>dob</th>
+        <th>gender</th>
+        <th>qualification</th>
+        <th colspan="2">action</th>
         </tr>
         </thead>
         <tbody>
+            {%if obj%}
+            {% for i in obj %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
-
+                <td>{{i.name}}</td>
+                <td>{{i.subject}}</td>
+                <td>{{i.phoneno}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.dob}}</td>
+                <td>{{i.gender}}</td>
+                <td>{{i.qualification}}</td>
+                <td>
+                 
+                    <a href="{% url 'accept_teacher' i.id %}"class="button accept">Accept</a>
+                    <a href="{% url 'reject_teacher' i.id %}"class="button reject">Reject</a>
+                </td>
+                    </tr>
+                    {%endfor%}
+                    {% else %}
+                    <td colspan="8"><center><p>all teachers verified</p></center></td>
+                    {%endif%}
+                    
+                </tr>
+          
         </table>
         </div>
 </body>

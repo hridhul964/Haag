@@ -11,17 +11,19 @@
     <table border="1">
         <tr>
         
-        <th>Teachers</th>
-        
+        <th>Course</th>        
         <th>students</th> 
         <th>Amount</th>
         </tr>
         </thead>
         <tbody>
+            {%for i in obj%}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>{{i.COURSE.coursename}}</td>
+                <td>{{i.USER.username}}</td>
+                <td>{{i.amount}}</td>
+            </tr>   
+            {%endfor%} 
                 
 
 

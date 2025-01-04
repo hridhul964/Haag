@@ -7,21 +7,24 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+    <a href="send_notification">add</a>
     <div class="container">
     <table border="1">
         <tr>
         <th>Date</th>
-        <th>Place</th>
-        <th>Event notification</th>
+        <th>Notification</th>
         
         </tr>
         </thead>
         <tbody>
+            {% for i in obj %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
+            
                 
+                <td>{{i.date}}</td>
+                <td>{{i.notification}}</td>
+                </tr>
+                {%endfor%}
 
 
         </table>

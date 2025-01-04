@@ -10,18 +10,22 @@
     <div class="container">
     <table border="1">
         <tr>
-        <th>Id</th>
+      
         <th> User name</th>
         <th>User feedback</th>
+        <th>date</th>
     
         </tr>
         </thead>
         <tbody>
+            {%for i in obj%}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-        
+                <td>{{i.USER_ID.username}}</td>
+                <td>{{i.feedback}}</td>
+                <td>{{i.date}}</td>
+           
+        </tr>
+        {%endfor%}
 
 
         </table>

@@ -11,27 +11,38 @@
     <table border="1">
         <tr>
     
-        <th>Teacher name</th>
-    
-        <th>Phone no</th>
-        <th>subject</th> 
-        <th>Events</th>
-        <th>Date</th>
-        <th>Place</th>
-        <th>Accept or reject</th>
+        <th> name</th>
+        <th>phoneno</th>
+        <th>email</th> 
+        <th>place</th>
+        <th>gender</th>
+        
 
         </tr>
         </thead>
         <tbody>
+            <!-- {%if obj%} -->
+            {% for i in obj %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-
+                <td>{{i.name}}</td>
+                <td>{{i.phoneno}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.place}}</td>
+                <td>{{i.gender}}</td>
+                
+                <td>
+                 
+                    <a href="{% url 'accept_eventmanager' i.id %}"class="button accept">Accept</a>
+                    <a href="{% url 'reject_eventmanager' i.id %}"class="button reject">Reject</a>
+                </td>
+            </tr>
+            {%endfor%}
+            <!-- {% else %}
+            <td colspan="6"><center><p>all eventmanagers verified</p></center></td>
+            {%endif%} -->
+            
+        </tr>
+  
         </table>
         </div>
 </body>

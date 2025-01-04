@@ -12,18 +12,32 @@
     <thead>
         <tr>
             <th>Class video</th>
-            <th>Student id</th>
-            <th>Teacher id</th>
-            <th>Payment status</th>
+            <th>date</th>
+            <th>description</th>
+            <th>amount</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
+        {% for i in obj %}
         <tr>
-            <td>Row 1, Cell 1</td>
-            <td>Row 1, Cell 2</td>
-            <td>Row 1, Cell 3</td>
-            <td>Row 1, Cell 4</td>
+            <td>
+                <video controls>
+                <source src="{{ i.Classvideo.url }}" type="video/mp4">
+            </video>
+        </td>
+            <td>{{i.date}}</td>
+            <td>{{i.Description}}</td>
+            <td>{{i.amount}}</td>
+            <td>
+                <a href="/edit_video/{{i.id}}">edit</a><br>
+                <a href="/deleteVideo/{{i.id}}/">delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <td><a href="/add_new_video">add new video</a></td>
+
         </tr>
         
 </table>

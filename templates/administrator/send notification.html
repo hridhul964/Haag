@@ -3,17 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../style.css">
+    <title>Notification Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            color: #555;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            resize: vertical;
+            margin-bottom: 20px;
+        }
+
+        textarea:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
   <div class="container">
-  <form>
-  Notification<input type="text"><br><br>
+      <h1>Notification Form</h1>
+      <form action="" method="post">
+          <!-- Uncomment and customize if needed -->
+          <!-- 
+          <label>Type</label>
+          <select name="type" id="">
+              {% for i in obj %}
+              <option value="{{i.id}}">{{i.name}}</option>
+              {% endfor %}
+          </select><br> 
+          -->
           
+          <label for="notification">Notification</label>
+          <textarea name="notification" id="notification" cols="30" rows="10" placeholder="Enter your notification here..."></textarea>
+          
+          <!-- Uncomment and customize if needed -->
+          <!-- 
+          <label for="date">Date</label>
+          <input type="date" name="date"><br>
+          -->
 
-<button type="SENT">SENT</button></form>
-
-   </div>     
+          <button type="submit">Send</button>
+      </form>
+  </div>     
 </body>
 </html>

@@ -14,20 +14,23 @@
         <th>Duration</th>
         <th>Course type</th>
         <th>Description about course</th> 
-        <th>Start and end date </th>
-        <th>Edit and delete</th>
+        <th>Start date </th>
+        <th>End date</th>
         </tr>
         </thead>
         <tbody>
+            {% for i in obj %}
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></tdtd>
-
-
+                <td>{{i.coursename}}</td>
+                <td>{{i.duration}}</td>
+                <td>{{i.type}}</td>
+                <td>{{i.description}}</td>
+                <td>{{i.startdate}}</td>
+                <td>{{i.enddate}}</td>
+                <td>
+                    <a href="deletecourse/{{i.id}}">delete </a></td>
+                </tr>
+                {%endfor%}
         </table>
         <a href="/add and manage course">+add and manage course</a>
         </div>

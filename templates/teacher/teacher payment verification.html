@@ -20,14 +20,15 @@
         </tr>
     </thead>
     <tbody>
+        {% for i in obj %}  
         <tr>
-            <td>Row 1, Cell 1</td>
-            <td>Row 1, Cell 2</td>
-            <td>Row 1, Cell 3</td>
-            <td>Row 1, Cell 4</td>
-            <td>Row 1, Cell 5</td>
+            <td>{{i.USER.username}}</td>
+            <td>{{i.teacherid.name}}</td>
+            <td>{{i.amount}}</td>
+            <td>{{i.paymentstatus}}</td>
+            <td>{{i.date}}</td>
         </tr>
-        
+        {%endfor%}
 </table>
 </div>
 </body>

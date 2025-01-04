@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+    <form method="post" enctype="multipart/form-data">
+
+Materials Name<input type="text" name="Materialsname" value="{{val.Materialsname}}"><br><br>
+imagematerial <input type="file" name="imagematerial"> <img src="{{val.imagematerial.url}}" width="50" height="50" alt="image"><br>
+ <!-- <a href="{{val.imagematerial.url}}" target="_blank">view</a><br><br>  -->
+Description<input type="text" name="Description" value="{{val.Description}}"><br><br>
+Amount<input type="text" name="Amount" value="{{val.Amount}}"><br><br>
+date<input type="date" name="date" value="{{ val.date|date:'Y-m-d' }}"><br><br>
+<button type="submit">edit</button></form>
+</div>
+</body>
+</html>

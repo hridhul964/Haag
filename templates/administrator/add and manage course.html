@@ -8,12 +8,15 @@
 </head>
 <body>
   <div class="container">
-  <form>
-  Course name<input type="text"><br><br>
-           Duration<input type="text"><br><br>
-           Course type<input type="text"><br><br>
-          Description about course <input type="text"><br><br>
-           start date and end date <input type="text"><br><br>
+  <form action="" method="post">
+    {% csrf_token %}
+  Course name : <input type="text" name="coursename"><br><br>
+           Duration : <input type="text" name="duration"><br><br>
+           Course type : <input type="text" name="type"><br><br>
+          Description about course :<input type="text" name="description"><br><br>
+           Start date :<input type="date" name="startdate" ><br><br>
+           End date date :<input type="date" name="enddate"><br><br>
+
 
 <button type="SUBMIT">SUBMIT</button></form>
         </div>
