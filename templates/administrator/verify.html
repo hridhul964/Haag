@@ -18,6 +18,7 @@
         <th>dob</th>
         <th>gender</th>
         <th>qualification</th>
+        
         <th colspan="2">action</th>
         </tr>
         </thead>
@@ -32,10 +33,17 @@
                 <td>{{i.dob}}</td>
                 <td>{{i.gender}}</td>
                 <td>{{i.qualification}}</td>
+            
                 <td>
-                 
+                 {% if i.LOGIN.Type == 'pending' %}
                     <a href="{% url 'accept_teacher' i.id %}"class="button accept">Accept</a>
                     <a href="{% url 'reject_teacher' i.id %}"class="button reject">Reject</a>
+                {% elif i.LOGIN.Type == 'rejected' %}
+                <a href="{% url 'accept_teacher' i.id %}"class="button accept">Accept</a>
+                {% else %}
+                <a href="{% url 'reject_teacher' i.id %}"class="button reject">Reject</a>
+                {% endif %}
+
                 </td>
                     </tr>
                     {%endfor%}

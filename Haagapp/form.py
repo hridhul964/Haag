@@ -30,4 +30,7 @@ class video_form(ModelForm):
         fields = ['Description','amount','Classvideo']   
 
     
-      
+class event_programstatus(ModelForm):
+    class Meta:
+        model = Eventprogram_model
+        fields = ['MANAGER','programname','coordinator'  ,'place' ,'Description']   

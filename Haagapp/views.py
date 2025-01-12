@@ -44,7 +44,7 @@ class AddandManageCourse(View):
 
 class Eventmanager(View):
     def get(self, request):
-        obj=Eventmanager_model.objects.filter(LOGIN__Type='pending')
+        obj=Eventmanager_model.objects.all()
         print("event",obj)
         return render(request, 'administrator/event manager.html',{'obj':obj})
     
@@ -118,7 +118,7 @@ class Sendnotification(View):
     
 class Verify(View):
     def get(self, request):
-        obj=Teacher_model.objects.filter(LOGIN__Type='pending')
+        obj=Teacher_model.objects.filter(LOGIN__Type__in=['pending', 'rejected'])
         print("teacher",obj)
         return render(request, 'administrator/verify.html',{'obj':obj})
     
@@ -127,13 +127,13 @@ class Accept_teacher(View):
         Teacher=Teacher_model.objects.get(id=t_id)
         print(Teacher)
         Teacher.LOGIN.Type='teacher'
-        Teacher.LOGIN.save
+        Teacher.LOGIN.save()
         return HttpResponse('''<script>alert("successfully accepted");window.location="/verify"</script>''')
 class Reject_teacher(View):
     def get(self, request,t_id):
         Teacher=Teacher_model.objects.get(id=t_id)
         Teacher.LOGIN.Type='rejected'
-        Teacher.LOGIN.save
+        Teacher.LOGIN.save()
         return HttpResponse('''<script>alert("successfully rejected");window.location="/verify"</script>''')
 
           
@@ -191,7 +191,15 @@ class Addandmanagecourse(View):
         return render(request, 'eventmanager/add and manage course.html')
 class Addandmanageeventprogram1(View):
     def get(self, request):
-        return render(request, 'eventmanager/add and manage event program 1.html')
+        obj = Eventmanager_model.objects.get(LOGIN_id=request.session['login_id'])
+        return render(request, 'eventmanager/add and manage event program 1.html',{'c':obj})
+    def post(self, request):
+        c = event_programstatus(request.POST)
+        if c.is_valid():
+            c.save()
+            return HttpResponse('''<script>alert("event added successfully");window.location="/add_and_manage_event_program_1";</script>''')
+
+
 class Addandmanageeventprogram(View):
     def get(self, request):
         return render(request, 'eventmanager/add and manage event program.html')
@@ -283,7 +291,7 @@ class Register(View):
             f.LOGIN=obj
             f.COURSE=obj1
             f.save()
-            return HttpResponse('''<script>alert("successfully added");window.location="send_event_notification_to_teacher"</script>''')
+            return HttpResponse('''<script>alert("successfully added");window.location="/"</script>''')
         
 
     

@@ -8,12 +8,16 @@
 </head>
 <body>
     <div class="container">
-    <form>
-Event title<input type="text"><br><br>
-Date<input type="text"><br><br>
-Description<input type="text"><br><br>
-Participants<input type="text"><br><br>
-<button type="Add">register</button></form>
+    <form method="post">
+        <input type="hidden" name="MANAGER" value="{{c}}">
+Event title<input type="text" name=programname><br><br>
+coordinator<input type="text" name=coordinator><br><br>
+
+<!-- Date<input type="text" name="date"><br><br> -->
+place<input type="text" name="place"><br><br>
+
+Description<input type="text" name="Description"><br><br>
+<button type="submit">register</button></form>
 </div>
 </body>
 </html> 

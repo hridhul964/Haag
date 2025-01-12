@@ -31,9 +31,14 @@
                 <td>{{i.gender}}</td>
                 
                 <td>
-                 
-                    <a href="{% url 'accept_eventmanager' i.id %}"class="button accept">Accept</a>
-                    <a href="{% url 'reject_eventmanager' i.id %}"class="button reject">Reject</a>
+                    {% if i.LOGIN.Type == 'pending' %}
+                    <a href="{% url 'accept_teacher' i.id %}"class="button accept">Accept</a>
+                    <a href="{% url 'reject_teacher' i.id %}"class="button reject">Reject</a>
+                {% elif i.LOGIN.Type == 'rejected' %}
+                <a href="{% url 'accept_teacher' i.id %}"class="button accept">Accept</a>
+                {% else %}
+                <a href="{% url 'reject_teacher' i.id %}"class="button reject">Reject</a>
+                {% endif %}
                 </td>
             </tr>
             {%endfor%}
